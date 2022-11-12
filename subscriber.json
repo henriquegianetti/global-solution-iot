@@ -1,0 +1,113 @@
+[
+    {
+        "id": "21c52c538464cbe5",
+        "type": "tab",
+        "label": "Subscriber",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0df1bf2f9c417bcc",
+        "type": "mqtt in",
+        "z": "21c52c538464cbe5",
+        "name": "",
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "959f8b22a80ad418",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "4bf81b5374e14d0b"
+            ]
+        ]
+    },
+    {
+        "id": "4bf81b5374e14d0b",
+        "type": "function",
+        "z": "21c52c538464cbe5",
+        "name": "Altera mensagem status",
+        "func": "switch(msg.payload) {\n    case 'A':\n        msg.payload = 'Vaga A disponível'\n        break;\n    case 'B':\n        msg.payload = 'Vaga B disponível'\n        break;\n    case 'AB':\n        msg.payload = 'Vagas A e B disponíveis'\n        break;\n    case 'X':\n        msg.payload = 'Todas as vagas estão ocupadas'\n        break;\n    default:\n        msg.payload = 'Status desconhecido'\n        break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "d98076be824be350"
+            ]
+        ]
+    },
+    {
+        "id": "d98076be824be350",
+        "type": "ui_text",
+        "z": "21c52c538464cbe5",
+        "group": "c2225701ba37256a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status das vagas:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 970,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "959f8b22a80ad418",
+        "type": "mqtt-broker",
+        "name": "Broker HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c2225701ba37256a",
+        "type": "ui_group",
+        "name": "Estacionamento",
+        "tab": "2c7eadebaf4e1e92",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c7eadebaf4e1e92",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": true
+    }
+]

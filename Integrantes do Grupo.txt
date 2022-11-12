@@ -1,0 +1,6 @@
+Henrique Gianetti Seleghini            RM82703
+Guilherme Hideki Takara Chalita        RM82358
+João Vitor de Camargo Ferreira Ramos   RM82215
+
+Link do vídeo no Youtube - https://youtu.be/insftAbDkp0
+Link do repositório no GitHub - https://github.com/henriquegianetti/global-solution-iot

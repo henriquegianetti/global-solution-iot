@@ -1,0 +1,171 @@
+[
+    {
+        "id": "5ed050205b76ab29",
+        "type": "tab",
+        "label": "Publisher",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ec71fb5460a45a3e",
+        "type": "inject",
+        "z": "5ed050205b76ab29",
+        "name": "Vaga A disponível",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "payload": "A",
+        "payloadType": "str",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "589519b9fb0d40fe"
+            ]
+        ]
+    },
+    {
+        "id": "d3fc7e950589a378",
+        "type": "inject",
+        "z": "5ed050205b76ab29",
+        "name": "Vaga B disponível",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "payload": "B",
+        "payloadType": "str",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "589519b9fb0d40fe"
+            ]
+        ]
+    },
+    {
+        "id": "353738744cf0e3d2",
+        "type": "inject",
+        "z": "5ed050205b76ab29",
+        "name": "Vagas A e B disponíveis",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "payload": "AB",
+        "payloadType": "str",
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "589519b9fb0d40fe"
+            ]
+        ]
+    },
+    {
+        "id": "33cda32c37e07730",
+        "type": "inject",
+        "z": "5ed050205b76ab29",
+        "name": "Nenhuma vaga disponível",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "payload": "X",
+        "payloadType": "str",
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "589519b9fb0d40fe"
+            ]
+        ]
+    },
+    {
+        "id": "589519b9fb0d40fe",
+        "type": "mqtt out",
+        "z": "5ed050205b76ab29",
+        "name": "",
+        "topic": "fiap/gs/iot/brave/4SIA/parking/status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "959f8b22a80ad418",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "959f8b22a80ad418",
+        "type": "mqtt-broker",
+        "name": "Broker HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
